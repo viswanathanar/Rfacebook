@@ -53,9 +53,10 @@
 getPost <- function(post, token, n=500, comments=TRUE, likes=TRUE, n.likes=n,
 	n.comments=n){
 
+	#url <- paste0("https://graph.facebook.com/", post,
+	#			"?fields=from,message,created_time,type,link,name,shares")
 	url <- paste0("https://graph.facebook.com/", post,
-				"?fields=from,message,created_time,type,link,name,shares")
-
+              "/comments")
 	if (comments==TRUE){
 		url <- paste0(url, ",comments.summary(true).",
 			"fields(id,from,message,created_time,like_count)")
